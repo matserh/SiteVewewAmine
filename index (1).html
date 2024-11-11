@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministère de l'Éducation Nationale - Mali</title>
+    <link rel="icon" href="favicon-px.png" type="image/png">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            animation: fadeInBackground 1s ease-in-out;
+        }
+        @keyframes fadeInBackground {
+            0% { background-color: #000; }
+            100% { background-color: #f4f4f4; }
+        }
+        .navbar {
+            background-color: #343a40;
+            padding: 0.5rem 1rem;
+            color: white;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: slideDown 1s ease-in-out;
+        }
+        @keyframes slideDown {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(0); }
+        }
+        .header .info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: left;
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-image: url('logo_of.png');
+            background-size: cover;
+            background-position: center;
+            margin-right: 20px;
+            animation: rotateIn 1s ease-in-out;
+        }
+        @keyframes rotateIn {
+            0% { transform: rotate(-360deg); }
+            100% { transform: rotate(0); }
+        }
+        .info-text {
+            text-align: left;
+            color: #ffde59; /* Vintage yellow */
+            animation: fadeInText 1s ease-in-out;
+        }
+        .info-text p {
+            margin: 5px 0;
+        }
+        @keyframes fadeInText {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .orientation-button {
+            background-color: #ffc107;
+            color: #333;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 0;
+            border: 2px solid #ffde59;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+            animation: changeColor 5s infinite, pulseButton 1s infinite;
+        }
+        @keyframes changeColor {
+            0% { background-color: #ffc107; color: #333; }
+            25% { background-color: #ffeb3b; color: #000; }
+            50% { background-color: #ffeb3b; color: #000; }
+            75% { background-color: #ffeb3b; color: #000; }
+            100% { background-color: #ffc107; color: #333; }
+        }
+        @keyframes pulseButton {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .orientation-button:hover {
+            background-color: #e0a800;
+            transform: scale(1.05);
+        }
+        .main-content {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: zoomIn 1s ease-in-out;
+        }
+        @keyframes zoomIn {
+            0% { transform: scale(0.8); }
+            100% { transform: scale(1); }
+        }
+        .main-content h1 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .main-content .sub-title {
+            color: #2a5298;
+            margin-bottom: 20px;
+        }
+        .main-content h2 {
+            color: #2a5298;
+            font-size: 24px;
+        }
+        .identification {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .identification img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            animation: rotateImage 5s infinite linear;
+        }
+        @keyframes rotateImage {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2a5298;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .form-group input:focus {
+            transform: scale(1.02);
+            border-color: #2a5298;
+        }
+
+        /* Media query for large desktops */
+        @media (min-width: 1200px) {
+            .header .info {
+                flex-direction: row;
+            }
+            .header .info-text {
+                text-align: left;
+            }
+        }
+
+        /* Media query for desktops */
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .header .info {
+                flex-direction: row;
+            }
+            .header .info-text {
+                text-align: left;
+            }
+        }
+
+        /* Media query for tablets */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .header .info {
+                flex-direction: column;
+                align-items: center;
+            }
+            .header .info-text {
+                text-align: center;
+            }
+            .orientation-button {
+                margin: 20px auto;
+            }
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 767px) {
+            .header {
+                padding: 10px 0;
+            }
+            .header .info {
+                flex-direction: column;
+                align-items: center;
+            }
+            .header .info-text {
+                text-align: center;
+            }
+            .orientation-button {
+                margin: 20px auto;
+            }
+            .main-content {
+                padding: 10px;
+                margin: 10px;
+            }
+            .main-content h2 {
+                font-size: 22px;
+            }
+            .identification img {
+                width: 40px;
+                height: 40px;
+            }
+            .form-group input {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <span>Créé par Amine inspiré du site porte educ.ml</span>
+    </nav>
+    <div class="header container-fluid">
+        <div class="row align-items-center justify-content-center info">
+            <div class="col-12 col-md-auto">
+                <div class="logo"></div>
+            </div>
+            <div class="col-12 col-md-auto info-text">
+                <p>MINISTÈRE DE L'ÉDUCATION NATIONALE</p>
+                <p>BIENVENUE SUR LE PORTAIL DE L'ÉDUCATION</p>
+                <p>PLACE DE LA LIBERTÉ - BAMAKO - MALI</p>
+                <p>contact@porteduc.ml</p>
+            </div>
+        </div>
+        <div class="orientation-button">
+            ORIENTATION 2024
+        </div>
+    </div>
+    <div class="main-content container mt-4">
+        <h2>ANNÉE SCOLAIRE 2024 - 2025</h2>
+        <div class="identification">
+            <img src="lvb.png" alt="Identification Icon">
+            <h3 class="mt-3">IDENTIFICATION (ORIENTATION)</h3>
+            <p>Identifiez-vous, pour connaître votre orientation</p>
+        </div>
+        <div class="form-group mt-4">
+            <label for="academie">Précisez l'académie d'origine</label>
+            <input type="text" id="academie" name="academie" class="form-control" placeholder="ACADÉMIE">
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
