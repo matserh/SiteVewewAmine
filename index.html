@@ -223,6 +223,27 @@
                 padding: 8px;
             }
         }
+
+        /* Style for the icon button */
+        .icon-button {
+            background-color: #2a5298;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 0;
+            border: 2px solid #2a5298;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .icon-button:hover {
+            background-color: #1e3c72;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -244,6 +265,9 @@
         <div class="orientation-button">
             ORIENTATION 2024
         </div>
+        <div class="icon-button" onclick="redirectToSite()">
+            🏠
+        </div>
     </div>
     <div class="main-content container mt-4">
         <h2>ANNÉE SCOLAIRE 2024 - 2025</h2>
@@ -260,5 +284,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function redirectToSite() {
+            alert("Bienvenue");
+            window.location.href = "https://www.porteduc.ml/portail/oriFinder";
+        }
+    </script>
 </body>
 </html>
